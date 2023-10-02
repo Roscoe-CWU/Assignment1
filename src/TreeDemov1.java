@@ -115,21 +115,21 @@ class Node{
 	   */
 	   	public boolean find(Node root, int key){
    			Node current = root;
-   			// traverse through tree in preorder
-   			// if the node's value equals the key return true
-   			// if there are no more nodes to traverse break out of the loop and return false
-	   		while(true) {
-	   			if(current.value == key) {
-		   			return true;
-		   		}
-	   			if(current.left != null) {
-	   				current = current.left;
+   			// while there are more nodes to check
+	   		while(current != null) {
+	   			// if the current node's value is equal to the key return true
+	   			if (key == current.value) {
+	   				return true;
 	   			}
-	   			else if(current.right != null) {
+	   			// if the key is greater than the current node's value
+	   			// go to the right node
+	   			else if(key > current.value) {
 	   				current = current.right;
 	   			}
+	   			// if the key is less than the current node's value
+	   			// go to the left node
 	   			else {
-	   				break;
+	   				current = current.left;
 	   			}
 	   		}
 	   		
