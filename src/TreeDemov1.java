@@ -114,7 +114,24 @@ class Node{
 	   with a specific value
 	   */
 	   	public boolean find(Node root, int key){
-	   		return true;
+   			Node current = root;
+	   		while(true) {
+	   			if(current.value == key) {
+		   			return true;
+		   		}
+	   			if(current.left != null) {
+	   				current = current.left;
+	   			}
+	   			else if(current.right != null) {
+	   				current = current.right;
+	   			}
+	   			else {
+	   				break;
+	   			}
+	   		}
+	   		
+	   		
+	   		return false;
 	   	}
 	   
 	   
@@ -201,5 +218,9 @@ class Node{
 	      System.out.print("post-order :   ");
 	      t1.postOrderTraversal(t1.root);
 	      System.out.println();
+	      
+	      // test find method
+	      System.out.println("18 is in the tree :   " + t1.find(t1.root, 18));
+	      System.out.println("99 is in the tree :   " + t1.find(t1.root, 99));
 	   }  
 	}
