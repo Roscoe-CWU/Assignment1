@@ -57,19 +57,27 @@ class Node{
 	   pre-order traversal
 	   Prints the value of every node preorder
 	   */
-	   public void preOrderTraversal(Node root){
-		//implement in here
+	   	public void preOrderTraversal(Node root){
 		   
-	   }
+	   	}
 
 	   
 	   
 	   /*
 	   in-order traversal
 	   */
-	   public void inOrderTraversal(Node root){
-	      //implement in here
-	   }
+	   	public void inOrderTraversal(Node root){
+	   		// traverse left nodes first
+	   		if(root.left != null) {
+	   			inOrderTraversal(root.left);
+	   		}
+	   		// output value of node
+	   		System.out.print(root.value + ", ");
+	   		// traverse right nodes
+	   		if(root.right != null) {
+	   			inOrderTraversal(root.right);
+	   		}
+	   	}
 	   
 	   
 	   
@@ -77,10 +85,10 @@ class Node{
 	   post-order traversal
 	   */
 	  
-	   public void postOrderTraversal(Node root){
+	   	public void postOrderTraversal(Node root){
          //implement in here
 		   
-	   }
+	   	}
 	   
 	   
 	   
@@ -88,10 +96,9 @@ class Node{
 	   a method to find the node in the tree
 	   with a specific value
 	   */
-	   public boolean find(Node root, int key){
-		 //implement in here
-		  
-	   }
+	   	public boolean find(Node root, int key){
+	   		return true;
+	   	}
 	   
 	   
 	   
@@ -99,10 +106,9 @@ class Node{
 	   a method to find the node in the tree
 	   with a smallest key
 	   */
-	   public int getMin(Node root){
-         //implement in here
-	      
-	   }
+	   	public int getMin(Node root){
+	   		return 0;
+	   	}
 	  
 	  
 	  
@@ -110,9 +116,9 @@ class Node{
 	   a method to find the node in the tree
 	   with a largest key
 	   */
-	   public int getMax(Node root){
-         //implement in here
-	   }
+	   	public int getMax(Node root){
+	   		return 0;
+	   	}
 	   
 	   
 	   
@@ -154,7 +160,7 @@ class Node{
 
 
 
-	public class TreeDemo{
+	public class TreeDemov1{
 	   public static void main(String[] args){
 	      BinarySearchTree t1  = new BinarySearchTree();
 	      t1.insert( 24);
