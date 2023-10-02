@@ -58,7 +58,16 @@ class Node{
 	   Prints the value of every node preorder
 	   */
 	   	public void preOrderTraversal(Node root){
-		   
+	   		// first output value of node
+	   		System.out.print(root.value + ", ");
+	   		// traverse left nodes
+	   		if(root.left != null) {
+	   			preOrderTraversal(root.left);
+	   		}	   		
+	   		// traverse right nodes
+	   		if(root.right != null) {
+	   			preOrderTraversal(root.right);
+	   		}
 	   	}
 
 	   
@@ -169,11 +178,15 @@ class Node{
 	      t1.insert(9);
 	      t1.insert(90);
 	      t1.insert(22);
-	            
+	      
+	      // test in order traversal
 	      System.out.print("in-order :   ");
 	      t1.inOrderTraversal(t1.root);
 	      System.out.println();
-	           
 	      
+	      // test pre order traversal
+	      System.out.print("pre-order :   ");
+	      t1.preOrderTraversal(t1.root);
+	      System.out.println();
 	   }  
 	}
