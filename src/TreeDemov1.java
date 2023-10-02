@@ -144,28 +144,13 @@ class Node{
 	   with a smallest key
 	   */
 	   	public int getMin(Node root){
+	   		// traverse right nodes until there are none
+	   		// then return the left most node (which will be the min)
 	   		Node current = root;
-	   		// initialize min value to the max value allowed in integers
-	   		int min = Integer.MAX_VALUE;
-	   		// traverse tree in pre order
-	   		// check if the current node's value is less than the min
-	   		// if it is set min to the current node's value
-	   		// if not, keep traversing until there are no more nodes
-	   		while(true) {
-	   			if(current.value < min) {
-		   			min = current.value;
-		   		}
-	   			if(current.left != null) {
-	   				current = current.left;
-	   			}
-	   			else if(current.right != null) {
-	   				current = current.right;
-	   			}
-	   			else {
-	   				break;
-	   			}
+	   		while(current.left != null) {
+	   			current = current.left;
 	   		}
-	   		return min;
+	   		return current.value;
 	   	}
 	  
 	  
@@ -175,7 +160,13 @@ class Node{
 	   with a largest key
 	   */
 	   	public int getMax(Node root){
-	   		return 0;
+	   		// traverse right nodes until there are none
+	   		// then return the right most node (which will be the max)
+	   		Node current = root;	
+	   		while(current.right != null) {
+	   			current = current.right;
+	   		}
+	   		return current.value;
 	   	}
 	   
 	   
@@ -249,5 +240,8 @@ class Node{
 	      
 	      // test getMin method
 	      System.out.println("Min value :   " + t1.getMin(t1.root));
+	      
+	      // test getMax method
+	      System.out.println("Max value :   " + t1.getMax(t1.root));
 	   }  
 	}
