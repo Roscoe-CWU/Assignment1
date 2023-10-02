@@ -94,9 +94,17 @@ class Node{
 	   post-order traversal
 	   */
 	  
-	   	public void postOrderTraversal(Node root){
-         //implement in here
-		   
+   		public void postOrderTraversal(Node root){
+   			// traverse left nodes first
+	   		if(root.left != null) {
+	   			postOrderTraversal(root.left);
+	   		}
+	   		// traverse right nodes
+	   		if(root.right != null) {
+	   			postOrderTraversal(root.right);
+	   		}
+	   		// output value of node last
+	   		System.out.print(root.value + ", ");
 	   	}
 	   
 	   
@@ -187,6 +195,11 @@ class Node{
 	      // test pre order traversal
 	      System.out.print("pre-order :   ");
 	      t1.preOrderTraversal(t1.root);
+	      System.out.println();
+	      
+	      // test post order traversal
+	      System.out.print("post-order :   ");
+	      t1.postOrderTraversal(t1.root);
 	      System.out.println();
 	   }  
 	}
