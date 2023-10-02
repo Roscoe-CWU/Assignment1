@@ -115,6 +115,9 @@ class Node{
 	   */
 	   	public boolean find(Node root, int key){
    			Node current = root;
+   			// traverse through tree in preorder
+   			// if the node's value equals the key return true
+   			// if there are no more nodes to traverse break out of the loop and return false
 	   		while(true) {
 	   			if(current.value == key) {
 		   			return true;
@@ -141,7 +144,28 @@ class Node{
 	   with a smallest key
 	   */
 	   	public int getMin(Node root){
-	   		return 0;
+	   		Node current = root;
+	   		// initialize min value to the max value allowed in integers
+	   		int min = Integer.MAX_VALUE;
+	   		// traverse tree in pre order
+	   		// check if the current node's value is less than the min
+	   		// if it is set min to the current node's value
+	   		// if not, keep traversing until there are no more nodes
+	   		while(true) {
+	   			if(current.value < min) {
+		   			min = current.value;
+		   		}
+	   			if(current.left != null) {
+	   				current = current.left;
+	   			}
+	   			else if(current.right != null) {
+	   				current = current.right;
+	   			}
+	   			else {
+	   				break;
+	   			}
+	   		}
+	   		return min;
 	   	}
 	  
 	  
@@ -222,5 +246,8 @@ class Node{
 	      // test find method
 	      System.out.println("18 is in the tree :   " + t1.find(t1.root, 18));
 	      System.out.println("99 is in the tree :   " + t1.find(t1.root, 99));
+	      
+	      // test getMin method
+	      System.out.println("Min value :   " + t1.getMin(t1.root));
 	   }  
 	}
